@@ -95,10 +95,10 @@ video.addEventListener('loadedmetadata', () => {
 volumeBtn.addEventListener('click', () => {
   if (video.volume === 0) {
     video.volume = volumeSlider.value / 100;
-    volumeBtn.innerHTML = '<box-icon name="volume-full" color="white" size="24px"></box-icon>';
+    volumeBtn.innerHTML = '<box-icon name="volume-full" color="white" size="20px" class="sm:size-24px"></box-icon>';
   } else {
     video.volume = 0;
-    volumeBtn.innerHTML = '<box-icon name="volume-mute" color="white" size="24px"></box-icon>';
+    volumeBtn.innerHTML = '<box-icon name="volume-mute" color="white" size="20px" class="sm:size-24px"></box-icon>';
   }
 
 });
