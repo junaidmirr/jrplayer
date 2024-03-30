@@ -14,6 +14,7 @@ const playerContainer = document.querySelector('.player-container');
 const modalOverlay = document.getElementById('modalOverlay');
 const videoLinkInput = document.getElementById('videoLinkInput');
 const bar = document.getElementById('controlBar');
+const overlay = document.getElementById('ovrly');
 
 let isFullscreen = false;
 let controlBarHideTimer;
@@ -44,7 +45,7 @@ playPauseBtn.addEventListener('click', () => {
   }
 });
 
-video.addEventListener('click', () => {
+overlay.addEventListener('click', () => {
     if (video.paused) {
     video.play();
     playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
