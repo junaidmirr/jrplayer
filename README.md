@@ -14,6 +14,11 @@ JR Player is a custom-made video player built with Tailwind CSS, CSS, and Vanill
 - Responsive design: JR Player adapts seamlessly to different screen sizes and devices.
 - Clean and modern UI: Tailwind CSS provides a visually appealing and user-friendly interface.
 
+## Demo
+
+[Demo](https://junaidmirr.github.io/jrplayer.github.io/)
+
+
 ## Installation
 
 1. Clone the repository:
