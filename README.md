@@ -16,8 +16,7 @@ JR Player is a custom-made video player built with Tailwind CSS, CSS, and Vanill
 
 ## Demo
 
-- user you own video link or copy paste below link in video player:
-- http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+- user you own video link or type `pie.mp4` to use our test video:
 
 [Demo](https://junaidmirr.github.io/jrplayer/)
 
