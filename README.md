@@ -1,6 +1,6 @@
 # JR Player
 
-![JR Player Logo]([path/to/your/logo.png](https://i.ibb.co/jbnP58h/jpr.png))
+![JR Player Logo](https://i.ibb.co/jbnP58h/jpr.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -20,11 +20,15 @@ JR Player is a custom-made video player built with Tailwind CSS, CSS, and Vanill
 
 ```bash
 git clone https://github.com/junaidmirr/jrplayer
-
+```
 2. Navigate to the project directory:
-cd jr-player
 
-3. Open the index.html file in your preferred web browser.
+```bash
+cd jr-player
+```
+
+4. Open the index.html file in your preferred web browser.
+
 Usage
 Once the JR Player is loaded, you can interact with the video controls to enhance your viewing experience. Here's a brief overview of the available controls:
 
