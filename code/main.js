@@ -13,23 +13,25 @@ const fullscreenBtn = document.getElementById('fullscreenBtn');
 const playerContainer = document.querySelector('.player-container');
 const modalOverlay = document.getElementById('modalOverlay');
 const videoLinkInput = document.getElementById('videoLinkInput');
+const bar = document.getElementById('controlBar');
 
 let isFullscreen = false;
+let controlBarHideTimer;
 
 // Modal overlay functionality
 window.addEventListener('DOMContentLoaded', () => {
-            modalOverlay.style.display = 'flex';
-        });
+  modalOverlay.style.display = 'flex';
+});
 
-        playVideoBtn.addEventListener('click', () => {
-            const videoLink = videoLinkInput.value;
-            if (videoLink) {
-                videoPlayer.src = videoLink;
-                videoPlayer.play();
-                playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
-                modalOverlay.style.display = 'none';
-            }
-        });
+playVideoBtn.addEventListener('click', () => {
+  const videoLink = videoLinkInput.value;
+  if (videoLink) {
+      videoPlayer.src = videoLink;
+      videoPlayer.play();
+      playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
+      modalOverlay.style.display = 'none';
+  }
+});
 
 // Play/Pause
 playPauseBtn.addEventListener('click', () => {
@@ -54,13 +56,20 @@ video.addEventListener('click', () => {
 });
 
 // Seek Bar
+function updateSeekBarGradient() {
+  const value = (seekBar.value / 100) * 100;
+  seekBar.style.setProperty('--value', `${value}%`);
+}
+
 video.addEventListener('timeupdate', () => {
   seekBar.value = (video.currentTime / video.duration) * 100;
   updateCurrentTime();
+  updateSeekBarGradient();
 });
 
 seekBar.addEventListener('input', () => {
   video.currentTime = (seekBar.value / 100) * video.duration;
+  updateSeekBarGradient();
 });
 
 // Update Current Time
@@ -150,29 +159,56 @@ fullscreenBtn.addEventListener('click', toggleFullscreen);
 function toggleFullscreen() {
   if (!isFullscreen) {
     enterFullscreen();
+
   } else {
     exitFullscreen();
   }
 }
 
+
+
+
 function enterFullscreen() {
   if (playerContainer.requestFullscreen) {
-    playerContainer.requestFullscreen();
+      playerContainer.requestFullscreen();
   } else if (playerContainer.webkitRequestFullscreen) {
-    playerContainer.webkitRequestFullscreen();
+      playerContainer.webkitRequestFullscreen();
   } else if (playerContainer.msRequestFullscreen) {
-    playerContainer.msRequestFullscreen();
+      playerContainer.msRequestFullscreen();
   }
   isFullscreen = true;
+
+  // Hide control bar after 3 seconds of inactivity
+  document.addEventListener('mousemove', resetControlBarHideTimer);
+  controlBarHideTimer = setTimeout(hideControlBar, 3000);
 }
 
 function exitFullscreen() {
   if (document.exitFullscreen) {
-    document.exitFullscreen();
+      document.exitFullscreen();
   } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
+      document.webkitExitFullscreen();
   } else if (document.msExitFullscreen) {
-    document.msExitFullscreen();
+      document.msExitFullscreen();
   }
   isFullscreen = false;
+
+  // Show control bar and remove event listeners
+  showControlBar();
+  document.removeEventListener('mousemove', resetControlBarHideTimer);
+  clearTimeout(controlBarHideTimer);
+}
+
+function hideControlBar() {
+  bar.style.opacity = '0';
+}
+
+function showControlBar() {
+  bar.style.opacity = '1';
+}
+
+function resetControlBarHideTimer() {
+  clearTimeout(controlBarHideTimer);
+  showControlBar();
+  controlBarHideTimer = setTimeout(hideControlBar, 3000);
 }
