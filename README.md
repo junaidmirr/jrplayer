@@ -16,7 +16,7 @@ JR Player is a custom-made video player built with Tailwind CSS, CSS, and Vanill
 
 ## Demo
 
-[Demo](https://junaidmirr.github.io/jrplayer.github.io/)
+[Demo](https://junaidmirr.github.io/jrplayer/)
 
 
 ## Installation
