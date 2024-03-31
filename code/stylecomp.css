@@ -1,0 +1,167 @@
+/* styles.css */
+
+.player-container {
+    position: relative;
+  }
+  
+  .player-container:fullscreen {
+    margin-top: 50%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .player-container:-webkit-full-screen {
+    margin-top: 50%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .player-container:-moz-full-screen {
+    margin-top: 50%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .player-container:-ms-fullscreen {
+     margin-top: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+  
+  .slider {
+    appearance: none;
+    width: 3rem; /* Adjust this value for the desired width */
+    height: 5rem; /* Adjust this value for the desired height */
+    background: transparent;
+    outline: none;
+    transform: rotate(270deg); /* Rotate the slider to vertical orientation */
+  }
+  
+  /* Styles for the slider track */
+  .slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1rem;
+    background: #ccc;
+    border-radius: 0.5rem;
+  }
+  
+  /* Styles for the slider thumb */
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: #4b5563;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Styles for Firefox */
+  .slider::-moz-range-track {
+    width: 100%;
+    height: 0.25rem;
+    background: #ccc;
+    border-radius: 0.5rem;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background: #4b5563;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  
+  
+          /* Modal Overlay Styles */
+          .modal-overlay {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.5);
+              z-index: 1000;
+              align-items: center;
+              justify-content: center;
+          }
+  
+          .modal-content {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: 10px;
+              max-width: 500px;
+              width: 100%;
+              text-align: center;
+          }
+  
+          .modal-content input {
+              width: 100%;
+              margin-bottom: 10px;
+              padding: 10px;
+              box-sizing: border-box;
+          }
+  
+          .modal-content button {
+              padding: 10px 20px;
+              background-color: #333;
+              color: #fff;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+          }
+
+          #seekBar {
+            width: 100%;
+            height: 0.25rem;
+            background: linear-gradient(90deg, #c0721e 0%, #c74d1d var(--value), #cbd5e0 var(--value));
+            border-radius: 0.5rem;
+            appearance: none;
+            cursor: pointer;
+            --value: 0%;
+          }
+          
+          #seekBar::-webkit-slider-thumb {
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: #c2ce21;
+            border-radius: 50%;
+            appearance: none;
+          }
+          
+          #seekBar::-moz-range-thumb {
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: #c2ce21;
+            border-radius: 50%;
+          }
+
+          .overlay { position: absolute; top: 0; left: 0; z-index: 2; }
+        
+        .overlay-button {
+            font-size: 24px;
+            color: rgb(226, 229, 25);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .flex {
+            display: flex;
+          }
+          
+          .justify-between {
+            justify-content: space-between;
+          }
+          
+          .items-center {
+            align-items: center;
+          }
+          
+          .vh-100 {
+            height: 100vh;
+          }
