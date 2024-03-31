@@ -2,7 +2,7 @@
 
 ![JR Player Logo](https://github.com/junaidmirr/jrplayer/blob/main/code/assets/android-chrome-192x192.png?raw=true)
 
-[![License](https://i0.wp.com/opensource.org/wp-content/uploads/2023/01/cropped-cropped-OSI_Horizontal_Logo_0-e1674081292667.png?fit=240%2C240&ssl=1)](https://opensource.org/licenses/MIT)
+[![License](https://i0.wp.com/opensource.org/wp-content/uploads/2023/01/cropped-cropped-OSI_Horizontal_Logo_0-e1674081292667.png?fit=20%2C240&ssl=1)](https://opensource.org/licenses/MIT)
 
 JR Player is a custom-made video player built with Tailwind CSS, CSS, and Vanilla JavaScript. It offers a sleek and intuitive user interface with a wide range of features, including playback speed control, quality selection, and custom full-screen controls.
 
