@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="code/style.css">
+    <link rel="stylesheet" href="code/stylecomp.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <title>Document</title>
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+    <div class="relative">
+
+        <div id="contt" class="player-container">
+    
+            <video id="videoPlayer" class="w-full h-screen vidplyr">
+                <source src="videosrc.mp4" type="video/mp4">
+              </video>
+              <div id="ovrly" class="overlay w-full h-screen">
+                <div class="flex justify-between items-center vh-100">
+                    <button id="trackbackward" class="overlay-button p-4 opacity-0 text-red-500 sm:p-8 md:p-16 lg:p-24 xl:p-32">
+                      <span class="hidden sm:inline">-5 sec</span>
+                      <span class="sm:hidden">-5s</span>
+                    </button>
+                    <button id="playPause" class="overlay-button p-2 opacity-0 sm:p-4 md:p-6 lg:p-8 xl:p-10">
+                      <box-icon name="play" color="white" size="52px" class="sm:size-48px md:size-64px lg:size-80px xl:size-90px"></box-icon>
+                    </button>
+                    <button id="trackforward" class="overlay-button p-4 opacity-0 text-red-500 sm:p-8 md:p-16 lg:p-24 xl:p-32">
+                      <span class="hidden sm:inline">+5 sec</span>
+                      <span class="sm:hidden">+5s</span>
+                    </button>
+                  </div>
+            </div>
+    
+              <div id="controlBar" class="fixed bottom-0 left-0 right-0 bg-black z-20 bg-opacity-50 flex flex-col sm:flex-row items-center justify-between px-2 py-1 sm:px-4 sm:py-2">
+                <div class="flex w-full items-center mx-2 sm:mx-4 mb-2 sm:mb-0">
+                  <button id="playPauseBtn" class="text-white mr-2 mt-1">
+                    <box-icon name="play" color="white" size="20px" class="sm:size-24px"></box-icon>
+                  </button>
+                  <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer">
+                  <span id="currentTime" class="text-white ml-2 text-xs sm:text-base">00:00</span>
+                  <span class="text-white mx-1 sm:mx-2 text-xs sm:text-base">/</span>
+                  <span id="duration" class="text-white text-xs sm:text-base">00:00</span>
+                </div>
+                <div class="flex items-right relative ml-1 mt-2">
+                  <button id="volumeBtn" class="text-white mr-0">
+                    <box-icon name="volume-full" color="white" size="20px" class="sm:size-24px"></box-icon>
+                  </button>
+                  <div id="volumeSlide" class="hidden">
+                    <div class="text-white absolute bottom-full mb-4 right-16 bg-white">
+                      <input id="volumeSlider" type="range" min="0" max="100" value="100" step="1" class="slider">
+                    </div>
+                  </div>
+                  <div class="relative mx-2">
+                    <button id="settingsBtn" class="text-white ml-2">
+                      <box-icon name="cog" color="white" size="20px" class="sm:size-24px"></box-icon>
+                    </button>
+                    <div id="settingsCard" class="hidden bg-gray-700">
+                      <div class="text-white absolute bottom-full mb-4 bg-gray-700 pr-2 pl-2">
+                        <h1 class="text-white font-bold text-sm sm:text-base">Settings</h1>
+                        <div class="flex items-center mb-0">
+                          <label for="playbackSpeed" class="mr-2 font-medium text-xs sm:text-sm">Speed:</label>
+                        </div>
+                        <select id="playbackSpeed" class="form-select rounded-md shadow-sm text-black text-xs sm:text-sm">
+                          <option value="0.5">0.5x</option>
+                          <option value="1" selected>1x</option>
+                          <option value="1.5">1.5x</option>
+                          <option value="2">2x</option>
+                        </select>
+                        <div class="flex items-center">
+                          <label for="videoQuality" class="mr-2 font-medium text-xs sm:text-sm">Quality:</label>
+                        </div>
+                        <select id="videoQuality" class="form-select rounded-md shadow-sm text-black text-xs sm:text-sm">
+                            <option value="000" selected>Auto</option>
+                          <option value="240" disabled>240p</option>
+                          <option value="360" disabled>360p</option>
+                          <option value="480" disabled>480p</option>
+                          <option value="720" disabled>720p</option>
+                          <option value="1080" disabled>1080p</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button id="fullscreenBtn" class="text-white ml-2">
+                    <box-icon name="fullscreen" color="white" size="20px" class="sm:size-24px"></box-icon>
+                  </button>
+                </div>
+              </div>
+    
+        </div>
+    
+    
+     
+    </div>
+    
+    <!-- Settings Modal -->
+    
+        <!-- Modal Overlay -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content">
+                <h1 class="text-lg font-bold">Select video source</h1>
+                <br>
+                <input id="videoLinkInput" class="border-2 border-gray-500 rounded-md text-gray-900" type="text" placeholder="Enter video link">
+                <p>or</p>
+                <input type="file" name="video" id="vidInput">
+                <button id="playVideoBtn">Play</button>
+            </div>
+        </div>
+    
+    <script src="code/main.js"></script>
+</body>
+</html>
