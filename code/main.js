@@ -166,9 +166,10 @@ seekBar.addEventListener('input', () => {
 
 // Update Current Time
 function updateCurrentTime() {
-  const minutes = Math.floor(video.currentTime / 60);
+  const hours = Math.floor(video.currentTime / 3600);
+  const minutes = Math.floor((video.currentTime % 3600) / 60);
   const seconds = Math.floor(video.currentTime % 60);
-  currentTime.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
+  currentTime.textContent = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
 }
 
 function padZero(value) {
@@ -177,9 +178,10 @@ function padZero(value) {
 
 // Duration
 video.addEventListener('loadedmetadata', () => {
-  const minutes = Math.floor(video.duration / 60);
+  const hours = Math.floor(video.duration / 3600);
+  const minutes = Math.floor((video.duration % 3600) / 60);
   const seconds = Math.floor(video.duration % 60);
-  duration.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
+  duration.textContent = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
 });
 
 // Volume
