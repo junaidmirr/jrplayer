@@ -44,10 +44,12 @@
                   <button id="playPauseBtn" class="text-white mr-2 mt-1">
                     <box-icon name="play" color="white" size="20px" class="sm:size-24px"></box-icon>
                   </button>
+                  <span id="currentTime" class="text-white ml-2 mb-1 text-xs mx-2 sm:text-base">00:00</span>
+
                   <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer">
-                  <span id="currentTime" class="text-white ml-2 text-xs sm:text-base">00:00</span>
-                  <span class="text-white mx-1 sm:mx-2 text-xs sm:text-base">/</span>
-                  <span id="duration" class="text-white text-xs sm:text-base">00:00</span>
+               
+                 
+                  <span id="duration" class="text-white ml-2 text-xs sm:text-base">00:00</span>
                 </div>
                 <div class="flex items-right relative ml-1 mt-2">
                   <button id="volumeBtn" class="text-white mr-0">
