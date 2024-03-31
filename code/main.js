@@ -15,6 +15,7 @@ const modalOverlay = document.getElementById('modalOverlay');
 const videoLinkInput = document.getElementById('videoLinkInput');
 const bar = document.getElementById('controlBar');
 const overlay = document.getElementById('ovrly');
+const vidInput = document.getElementById('vidInput');
 
 let isFullscreen = false;
 let controlBarHideTimer;
@@ -24,36 +25,28 @@ window.addEventListener('DOMContentLoaded', () => {
   modalOverlay.style.display = 'flex';
 });
 
+vidInput.addEventListener('change', () => {
+  const selectedFile = vidInput.files[0];
+  if (selectedFile) {
+    const fileURL = URL.createObjectURL(selectedFile);
+    video.src = fileURL;
+    video.play();
+    playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
+    modalOverlay.style.display = 'none';
+  }
+});
+
 playVideoBtn.addEventListener('click', () => {
   const videoLink = videoLinkInput.value;
   if (videoLink) {
-      videoPlayer.src = videoLink;
-      videoPlayer.play();
-      playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
-      modalOverlay.style.display = 'none';
-  }
-});
-
-// Play/Pause
-playPauseBtn.addEventListener('click', () => {
-  if (video.paused) {
+    video.src = videoLink;
     video.play();
     playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
+    modalOverlay.style.display = 'none';
   } else {
-    video.pause();
-    playPauseBtn.innerHTML = '<box-icon name="play" color="white" size="24px"></box-icon>';
+    // Handle case when no video link or file is selected
+    console.log('Please enter a video link or select a video file.');
   }
-});
-
-overlay.addEventListener('click', () => {
-    if (video.paused) {
-    video.play();
-    playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
-  } else {
-    video.pause();
-    playPauseBtn.innerHTML = '<box-icon name="play" color="white" size="24px"></box-icon>';
-  }
-
 });
 
 // Seek Bar
@@ -100,32 +93,27 @@ volumeBtn.addEventListener('click', () => {
     video.volume = 0;
     volumeBtn.innerHTML = '<box-icon name="volume-mute" color="white" size="20px" class="sm:size-24px"></box-icon>';
   }
-
 });
 
 volumeBtn.addEventListener('mouseover', function() {
- document.getElementById('volumeSlide').classList.remove('hidden');
+  document.getElementById('volumeSlide').classList.remove('hidden');
 });
 
 document.getElementById('volumeSlider').addEventListener('mouseout', function() {
-    document.getElementById('volumeSlide').classList.add('hidden');
+  document.getElementById('volumeSlide').classList.add('hidden');
 });
 
 volumeBtn.addEventListener('mousedown', function() {
-    // Start the timer
-    pressTimer = window.setTimeout(function() {
-        // If the timer is still running, it means the button was pressed for longer than 500ms
-        document.getElementById('volumeSlide').classList.remove('hidden');
-
-    }, 500);
+  // Start the timer
+  pressTimer = window.setTimeout(function() {
+    // If the timer is still running, it means the button was pressed for longer than 500ms
+    document.getElementById('volumeSlide').classList.remove('hidden');
+  }, 500);
 });
 
 document.getElementById('contt').addEventListener('click', () => {
-    document.getElementById('volumeSlide').classList.add('hidden');
-    
+  document.getElementById('volumeSlide').classList.add('hidden');
 });
-
-
 
 volumeSlider.addEventListener('input', () => {
   video.volume = volumeSlider.value / 100;
@@ -160,22 +148,18 @@ fullscreenBtn.addEventListener('click', toggleFullscreen);
 function toggleFullscreen() {
   if (!isFullscreen) {
     enterFullscreen();
-
   } else {
     exitFullscreen();
   }
 }
 
-
-
-
 function enterFullscreen() {
   if (playerContainer.requestFullscreen) {
-      playerContainer.requestFullscreen();
+    playerContainer.requestFullscreen();
   } else if (playerContainer.webkitRequestFullscreen) {
-      playerContainer.webkitRequestFullscreen();
+    playerContainer.webkitRequestFullscreen();
   } else if (playerContainer.msRequestFullscreen) {
-      playerContainer.msRequestFullscreen();
+    playerContainer.msRequestFullscreen();
   }
   isFullscreen = true;
 
@@ -186,11 +170,11 @@ function enterFullscreen() {
 
 function exitFullscreen() {
   if (document.exitFullscreen) {
-      document.exitFullscreen();
+    document.exitFullscreen();
   } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
+    document.webkitExitFullscreen();
   } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
+    document.msExitFullscreen();
   }
   isFullscreen = false;
 
@@ -213,3 +197,23 @@ function resetControlBarHideTimer() {
   showControlBar();
   controlBarHideTimer = setTimeout(hideControlBar, 3000);
 }
+
+// Keydown event listener for space bar and arrow keys
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'Space') {
+    // Play/Pause video
+    if (video.paused) {
+      video.play();
+      playPauseBtn.innerHTML = '<box-icon name="pause" color="white" size="24px"></box-icon>';
+    } else {
+      video.pause();
+      playPauseBtn.innerHTML = '<box-icon name="play" color="white" size="24px"></box-icon>';
+    }
+  } else if (event.code === 'ArrowLeft') {
+    // Seek backward 5 seconds
+    video.currentTime -= 5;
+  } else if (event.code === 'ArrowRight') {
+    // Seek forward 5 seconds
+    video.currentTime += 5;
+  }
+});
