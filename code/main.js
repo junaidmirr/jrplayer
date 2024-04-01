@@ -72,7 +72,7 @@ vidInput.addEventListener('change', () => {
           if (thumbnailUrl) {
             video.poster = thumbnailUrl;
           } else {
-            video.poster = 'logo.gif'; // Replace with the path to your custom GIF image
+            video.poster = 'https://i.ibb.co/G7QpZYk/logo.gif'; // Replace with the path to your custom GIF image
           }
           video.load();
           video.play();
@@ -103,7 +103,7 @@ vidInput.addEventListener('change', () => {
           if (thumbnailUrl) {
             video.poster = thumbnailUrl;
           } else {
-            video.poster = 'logo.gif'; // Replace with the path to your custom GIF image
+            video.poster = 'https://i.ibb.co/G7QpZYk/logo.gif'; // Replace with the path to your custom GIF image
           }
           video.load();
           video.play();
