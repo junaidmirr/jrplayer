@@ -72,7 +72,7 @@ vidInput.addEventListener('change', () => {
           if (thumbnailUrl) {
             video.poster = thumbnailUrl;
           } else {
-            video.poster = 'https://raw.githubusercontent.com/junaidmirr/jrplayer/5454f4c74d82387c03c9e1a766225237809f5f64/code/logo.gif'; // Replace with the path to your custom GIF image
+            video.poster = 'logo.gif'; // Replace with the path to your custom GIF image
           }
           video.load();
           video.play();
@@ -103,7 +103,7 @@ vidInput.addEventListener('change', () => {
           if (thumbnailUrl) {
             video.poster = thumbnailUrl;
           } else {
-            video.poster = 'https://raw.githubusercontent.com/junaidmirr/jrplayer/5454f4c74d82387c03c9e1a766225237809f5f64/code/logo.gif'; // Replace with the path to your custom GIF image
+            video.poster = 'logo.gif'; // Replace with the path to your custom GIF image
           }
           video.load();
           video.play();
